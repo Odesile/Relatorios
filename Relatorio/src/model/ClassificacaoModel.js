@@ -1,9 +1,9 @@
-export class CassicacaoModel 
+export class ClassificacaoModel 
 {
     constructor(id, nome)
     {
         //O ID ele é auto incrementado, portanto, é gerado pelo banco
-        this.id = id ? id : null;
+        this.setid(id);
         this.setnome(nome);
     }
 
@@ -21,6 +21,9 @@ export class CassicacaoModel
     getid ()
     {
         return this.id;
+    }
+    setid(id){
+        this.id = id ? id : null;
     }
 
 };
