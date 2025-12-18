@@ -2,14 +2,17 @@ export class UsuarioModel
 {
     constructor(cpf, nome , email, senha, telefone, admin, empresa)
     {
-        this.cpf = cpf;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.telefone = telefone;
-        this.admin = admin;
+        this.setcpf(cpf);
+        this.setnome(nome);
+        this.setemail(email);
+        this.setsenha(senha);
+        this.settelefone(telefone);
+        this.setadmin(admin);
+        this.setempresa(empresa);
 
     }
+
+    //Getters e Setter
 
     getcpf()
     {
@@ -90,7 +93,7 @@ export class UsuarioModel
     }
     settelefone(telefone)
     {
-        if(!telefone || telefone.trim() == "")
+        if(!telefone || telefone.trim() === "")
         {
             throw new Error("O Telefone É OBRIGATORIO");
         }
@@ -108,7 +111,7 @@ export class UsuarioModel
     {
         return this.admin;
     }
-    setadmin()
+    setadmin(admin)
     {
         this.admin = (admin === true || admin === 1 || admin === "1") ? 1 : 0;
     }

@@ -1,0 +1,21 @@
+{
+  "name": "capsula01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Odesile/Relatorios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Odesile/Relatorios/issues"
+  },
+  "homepage": "https://github.com/Odesile/Relatorios#readme"
+}
