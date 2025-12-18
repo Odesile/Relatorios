@@ -31,7 +31,7 @@ export class GrupoModel
     {
         if(!numero || numero < 0 || isNaN(numero))
         {
-            throw new Error("Digite um número de numero válido!!");
+            throw new Error("Digite um número válido!!");
         }
         this.numero = numero;
     }
@@ -42,7 +42,7 @@ export class GrupoModel
     }
     setnome(nome)
     {
-        if(!nome || nome === "")
+        if(!nome || nome === "" || nome.len() > 45)
         {
             throw new Error("Insira um nome válido!")
         }

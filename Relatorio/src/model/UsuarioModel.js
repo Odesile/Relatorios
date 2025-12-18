@@ -26,12 +26,14 @@ export class UsuarioModel
         }
 
         //Retira os hífens e pontos do cpf
-        const cpfLimpo = cpf.replace(/\D/g, '');
+        //10528926551 <=  105.289.265-51
+        const CPFLIMPO = cpf.replace(/\D/g, '');
 
-        if(cpf.length > 11)
+        if(CPFLIMPO.length > 11)
         {
             throw new Error("CPF INVALIDO, MAIS DE 11 CATACTERES");
         }
+        this.cpf = CPFLIMPO;
     }
 
 
@@ -45,10 +47,11 @@ export class UsuarioModel
             {
                 throw new Error("Nome do usuário é obrigatório");
             }
-        if(nome > 45)
+        if(nome.len() > 45)
             {
                 throw new Error("Nome do usuário inválido, maior que 45 caracteres");
             }
+            this.nome = nome;
     }
 
     getemail()
@@ -69,6 +72,7 @@ export class UsuarioModel
         {
             throw new Error("O email utrapassa o limite de caracteres: (80)");
         }
+        this.email = email;
     }
 
     getsenha()
@@ -85,6 +89,7 @@ export class UsuarioModel
         {
             throw new Error("A senha do usuário não pode ultrapasssar 32 caracteres")
         }
+        this.senha = senha;
     }
 
     gettelefone()
@@ -105,6 +110,7 @@ export class UsuarioModel
         {
             throw new Error("Telefone INVALIDO, MAIS DE 11 CATACTERES");
         }
+        this.telefine = telefoneLimpo;
     }
 
     getadmin()
@@ -113,7 +119,7 @@ export class UsuarioModel
     }
     setadmin(admin)
     {
-        this.admin = (admin === true || admin === 1 || admin === "1") ? 1 : 0;
+        this.admin = (admin === true || admin === 1 || admin.trim() === "1") ? 1 : 0;
     }
 
     getempresa()
@@ -130,5 +136,6 @@ export class UsuarioModel
         {
             throw new Error("O usuário precisa ter empresas")
         }
+        this.empresa = empresa;
     }
 }
