@@ -22,12 +22,14 @@ export class GrupoDao
             //Execulta o comando sql
             const  [resultado] = await pool.execute(sql, valores);// INSERT INTO grupo (empresa, numero, nome) VALUES (empresa, numero, nome)
         
+            //Retorna um booleano se a quantidade de linhas afetadas foram maior que 0 ou não
             return resultado.affectedRows > 0; // True ou False
         }
         catch(error)
         {
             console.log("Erro ao criar o grupo: ", error);
             throw error;
+            
         }
     }
 
@@ -38,10 +40,10 @@ export class GrupoDao
         {
             const sql_select = 'SEELECT * from ?';
             const valor_select = grupo;
-            const [resultado_select] = await pool.execute(sql_select, valor_select);
+            const [resultado_select] = await pool.execute(sql_select, valor_select);// SELECT * FROM grupo
             
             return resultado_select;
-            // SELECT * FROM grupo
+            
         }
         catch(error)
         {
