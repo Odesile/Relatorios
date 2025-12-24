@@ -77,6 +77,12 @@ export class EmpresaDAO
         }
     }
 
+    /**
+     * Lista todas as emrpresas do banco.
+     * 
+     * @returns {promise<EmpresaModel|null}
+     */
+
     async buscarTodos()
     {
         try
@@ -84,6 +90,7 @@ export class EmpresaDAO
             const sql_buscaTodos = "SELECT * FROM empresa"
             const [linhas] = await pool.query(sql_buscaTodos);
 
+            if (linhas.length() === 0) return null;
             const linha = linhas[0];
 
             return new EmpresaModel(
@@ -100,6 +107,12 @@ export class EmpresaDAO
         }
     }
 
+    /**
+     * 
+     * @param {number} id 
+     * @returns {promise<EmpresaModel|null}
+     */
+
     async bucarPorId(id)
     {
         try
@@ -107,6 +120,7 @@ export class EmpresaDAO
             const sql_bpId = "SELECT * FROM empresa WHERE id = ?"
             const [linhas] = await pool.query(sql_bpId, [id]);
 
+            if (linhas.length() === 0) return null;
             const linha = linhas[0];
 
             return new EmpresaModel(
