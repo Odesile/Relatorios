@@ -24,7 +24,7 @@ export class GrupoDao
         }
         catch(error)
         {
-            console.log("Erro ao criar o grupo: ", error);
+            console.error("Erro ao criar o grupo: ", error);
             throw error;
             
         }

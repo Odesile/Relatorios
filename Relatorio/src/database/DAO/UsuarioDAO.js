@@ -76,6 +76,31 @@ export class UsuarioDAO
     }
 
     /**
+     * Deleta um usurário do banco com base no cpf
+     * 
+     * @param {string} cpf 
+     * @returns {Promise<boolean>}
+     */
+
+    async apagar(cpf)
+    {
+        try
+        {
+            const sql_apagar = "DELETE FROM usuarios WHERE cpf = ?"
+            const cpf_limpo = cpf.replace(/\D/g, '')
+            const [resultado] = await pool.execute(sql_apagar, [cpf_limpo])
+        
+            return resultado.affectedRows > 0;
+        }
+        catch(error)
+        {
+            console.error("Erro ao deletar o usuario: ", error)
+            throw error;
+
+        }
+    }
+
+    /**
      * Busca todos os usuários
      * @returns {Promise<UsuarioModel[]>}
      */
