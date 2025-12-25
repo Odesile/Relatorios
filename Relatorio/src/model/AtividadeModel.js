@@ -8,7 +8,6 @@ export class AtividadeModel
         this.setgruponumero(grupoNumero);
         this.setempresa(mes);
         this.setano(ano);
-        this.setadmin(admin);
         this.setparticipou(participou);
         this.sethoras(horas);
         this.setqtdestudos(qtdestudos);
@@ -91,15 +90,6 @@ export class AtividadeModel
             throw new Error("Insira um ano válido");
         }
         this.ano = ano;
-    }
-
-    getadmin()
-    {
-        return this.admin;
-    }
-    setadmin(admin)
-    {
-        this.admin = (admin === true || admin === "1" || admin === 1);
     }
 
     getparticipou()

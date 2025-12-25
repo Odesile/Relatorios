@@ -8,7 +8,7 @@ export class ClassificacaoModel
     }
 
     //Getter e Setters
-    getNome ()
+    getnome ()
     {
         return this.nome;
     }

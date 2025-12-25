@@ -87,8 +87,8 @@ export class EmpresaDAO
     {
         try
         {
-            const sql_buscaTodos = "SELECT * FROM empresa"
-            const [linhas] = await pool.query(sql_buscaTodos);
+            const sql_buscarTodos = "SELECT * FROM empresa"
+            const [linhas] = await pool.query(sql_buscarTodos);
 
             if (linhas.length() === 0) return null;
             const linha = linhas[0];
