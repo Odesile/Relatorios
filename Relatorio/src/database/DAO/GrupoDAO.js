@@ -1,5 +1,5 @@
 import {pool} from "../db";
-import {GrupoModel} from '../../model/GrupoModel'
+import {GrupoModel} from '../../model/GrupoModel.js'
 
 export class GrupoDao
 {
