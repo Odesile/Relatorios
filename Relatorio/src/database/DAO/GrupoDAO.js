@@ -1,4 +1,4 @@
-import {pool} from "../db";
+import {pool} from "../db.js";
 import {GrupoModel} from '../../model/GrupoModel.js'
 
 export class GrupoDao
@@ -143,7 +143,7 @@ export class GrupoDao
      * @returns {Promise<GrupoModel>|null}
      */
 
-    async buscaComposta(idEmpresa, numeroGrupo)
+    async buscarComposta(idEmpresa, numeroGrupo)
     {
         try
         {

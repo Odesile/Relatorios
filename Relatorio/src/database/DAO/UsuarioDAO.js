@@ -1,5 +1,5 @@
-import { pool } from "../db";
-import { UsuarioModel } from "../../model/UsuarioModel";
+import { pool } from "../db.js";
+import { UsuarioModel } from "../../model/UsuarioModel.js";
 
 export class UsuarioDAO
 {

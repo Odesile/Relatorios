@@ -1,5 +1,5 @@
-import { pool } from "../db";
-import { AtividadeModel } from "../../model/AtividadeModel";
+import { pool } from "../db.js";
+import { AtividadeModel } from "../../model/AtividadeModel.js";
 
 export class AtividadeDAO
 {
