@@ -72,6 +72,12 @@ export class UsuarioController
         }
     }
 
+    /**
+     * Cria um novo usuário
+     * 
+     * @param {*} req 
+     * @param {*} res 
+     */
     async criar (req, res)
     {
         const dao = new UsuarioDAO();
@@ -93,6 +99,12 @@ export class UsuarioController
         }
     }
 
+    /**
+     * Atualiza um usuário existente
+     * 
+     * @param {*} req 
+     * @param {*} res 
+     */
     async atualizar (req, res)
     {
         const dao = new UsuarioDAO();
@@ -116,6 +128,12 @@ export class UsuarioController
         }
     }
 
+    /**
+     * Apagar um usuário existente.
+     * 
+     * @param {*} req 
+     * @param {*} res 
+     */
     async apagar (req, res)
     {
         const dao = new UsuarioDAO();
