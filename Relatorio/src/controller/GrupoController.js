@@ -118,4 +118,61 @@ export class GrupoController
             res.status(500).json({message:"Erro ao criar o grupo.", detalhe: error.message});
         }
     }
+
+    /**
+     * Atualiza um grupo com o critério de busca ID.
+     * 
+     * @param {*} req 
+     * @param {*} res 
+     */
+    async atualizar (req, res)
+    {
+        const dao = new GrupoDao();
+        try
+        {
+            const id = req.params.id;
+            const {empresa, numero, nome} = req.body;
+            const grupoAtualizado = new GrupoModel(id, empresa, numero, nome);
+            const sucesso = await dao.atualizar(grupoAtualizado);
+
+            if(!sucesso)
+            {
+                res.status(404).json({messagem: "Erro ao encontrar o grupo!"})
+            }
+            res.status(200).json({messagem: "Grupo atualizado com sucesso!"});
+        }
+        catch(error)
+        {
+            console.log(error);
+            res.status(500).json({messagem : "Erro ao atualizar o grupo!", detalhe : error.message});
+        }
+    }
+
+    /**
+     * Exclui um grupo pelo critério ID.
+     * 
+     * @param {*} req 
+     * @param {*} res 
+     */
+    async apagar (req, res)
+    {
+        const dao = GrupoDao();
+        try
+        {
+            const id = req.params.id;
+            const sucesso = await dao.apagar(id);
+
+            if(!sucesso)
+            {
+                res.status(404).json({messagem: "Grupo não encontrado!"})
+            }
+            res.status(200).json({messagem:"Grupo excluído com sucesso!"})
+        }
+        catch(error)
+        {
+            console.log(error);
+            res.status(500).json({messagem:"Erro ao exluir o grupo.", detalhe: error.message});
+        }
+    }
+
 }
