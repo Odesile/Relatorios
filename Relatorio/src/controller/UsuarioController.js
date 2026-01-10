@@ -3,6 +3,49 @@ import { UsuarioDAO } from "../database/DAO/UsuarioDAO.js";
 
 export class UsuarioController
 {
+    async login (req, res)
+    {
+        const dao = new UsuarioDAO();
+        try
+        {
+            const {email, senha} = req.body;
+
+            //Validação básica de entrada.
+            if(!email || !senha)
+            {
+                return res.status(400).json({messagem: "Email e Senha são obrigatórios."})
+            }
+
+            //Busca o usuário pelo Email
+            const usuario = await dao.buscarPorEmail(email);
+
+            //Verificação de Segurança
+            //Se o usuário não existe OU a senha não bate, retornaremos erro 401 (unauthorized)
+            //Atenção: Usamos uma mensagem generica para evitar enumeração de usuários (pesquise mais a fundo sobre isso).
+            if(!usuario || usuario.getsenha() !== senha)
+            {
+                res.status(401).json({messagem: "Senha ou usuário incorreta!"});
+            }
+
+            //Sanitização (Remover dados sensíveis antes de enviar para o front-end)
+            //Criamos um objeto simples apenas com o que o front-end precisa saber.
+            const usuarioLogado ={
+                cpf : usuario.getcpf(),
+                nome : usuario.getnome(),
+                email : usuario.getemail(),
+                admin : usuario.getadmin(),
+                empresaId: usuario.getempresa()
+            };
+
+            res.status(200).json({message: "Login realizado com sucesso!", usuario : usuarioLogado});
+        }
+        catch(error)
+        {
+            console.log(error);
+            res.status(500).json({message: "Erro interno no servidor ao realizar login ", detalhe: error.message});
+        }
+    }
+
     /**
      * Lista todos os usuários
      * 

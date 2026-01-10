@@ -3,6 +3,7 @@ import { AtividadeModel } from "../model/AtividadeModel.js";
 
 export class AtividadeController
 {
+
     /**
      * Lista todas as atividades
      * 
