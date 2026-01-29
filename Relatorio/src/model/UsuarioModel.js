@@ -47,7 +47,7 @@ export class UsuarioModel
             {
                 throw new Error("Nome do usuário é obrigatório");
             }
-        if(nome.len() > 45)
+        if(nome.length > 45)
             {
                 throw new Error("Nome do usuário inválido, maior que 45 caracteres");
             }

@@ -24,7 +24,7 @@ export class EmpresaModel
     }
     setnome(nome)
     {
-        if(!nome || nome.trim() === "" || nome.len() > 80)
+        if(!nome || nome.trim() === "" || nome.length > 80)
         {
             throw new Error("Insira um nome váliodo")
         }
@@ -38,7 +38,7 @@ export class EmpresaModel
     }
     setcidade(cidade)
     {
-        if(!cidade || cidade.trim() === ""|| cidade.len() > 45)
+        if(!cidade || cidade.trim() === ""|| cidade.length > 45)
         {
             throw new Error("Insira um cidade váliodo")
         }
@@ -52,7 +52,7 @@ export class EmpresaModel
     }
     setestado(estado)
     {
-        if(!estado || estado.trim() === "" || estado.len() > 45)
+        if(!estado || estado.trim() === "" || estado.length > 45)
         {
             throw new Error("Insira um estado váliodo")
         }

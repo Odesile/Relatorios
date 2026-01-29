@@ -90,14 +90,14 @@ export class EmpresaDAO
             const sql_buscarTodos = "SELECT * FROM empresa"
             const [linhas] = await pool.query(sql_buscarTodos);
 
-            if (linhas.length() === 0) return null;
+            if (linhas.length === 0) return null;
             const linha = linhas[0];
 
             return new EmpresaModel(
-                linha.getid(),
-                linha.getnome(),
-                linha.getcidade(),
-                linha.getestado()
+                linha.id,
+                linha.nome,
+                linha.cidade,
+                linha.estado
             )
         }
         catch(error)
@@ -120,7 +120,7 @@ export class EmpresaDAO
             const sql_bpId = "SELECT * FROM empresa WHERE id = ?"
             const [linhas] = await pool.query(sql_bpId, [id]);
 
-            if (linhas.length() === 0) return null;
+            if (linhas.length === 0) return null;
             const linha = linhas[0];
 
             return new EmpresaModel(

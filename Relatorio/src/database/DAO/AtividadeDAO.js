@@ -106,7 +106,7 @@ export class AtividadeDAO
             const sql_buscartodos = "SELECT * FROM atividade ORDER BY ano DESC, mes DESC";
             const [linhas] = await pool.query(sql_buscartodos);
 
-            if (linhas.length() === 0) return null;
+            if (linhas.length === 0) return null;
 
             return linhas.map(linhas => this.converterLinhaModel(linhas[0]));
         }
@@ -127,7 +127,7 @@ export class AtividadeDAO
             const sql_bpId = "SELECT * FROM atividade WHERE id = ?"
             const [linhas] = await pool.query(sql_bpId, [id]);
 
-            if (linhas.length() === 0) return null;
+            if (linhas.length === 0) return null;
 
             return this.converterLinhaModel(linhas[0])
 

@@ -145,7 +145,7 @@ export class UsuarioDAO
 
             const [linhas] = await pool.query(sql_bpCpf, [cpf_limpo])
 
-            if (linhas.length() === 0) return null;
+            if (linhas.length === 0) return null;
 
             const linha = linhas[0];
             return new UsuarioModel(
@@ -180,7 +180,7 @@ export class UsuarioDAO
             const sql_bpEmail = "SELECT * FROM usuarios WHERE email = ?"
             const [linhas] = await pool.query(sql_bpEmail, [email]);
 
-            if (linhas.length() === 0) return null;
+            if (linhas.length === 0) return null;
 
             const linha = linha[0];
 

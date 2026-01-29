@@ -87,13 +87,13 @@ export class ClassificacaoDAO
             const sql_buscaTodos = "SELECT * FROM classificacao";
             const [linhas] = await pool.query(sql_buscaTodos);
 
-            if (linhas.length() === 0) return null;
+            if (linhas.length === 0) return null;
 
             const linha = linhas[0];
 
             return linhas.map(linha => ClassificacaoModel(
-                linha.getid(),
-                linhas.getnome()
+                linha.id,
+                linhas.nome
             ));
         }
         catch(error)
@@ -116,13 +116,13 @@ export class ClassificacaoDAO
             const sql_bpId = "SELECT * FROM classificacao WHERE id = ?"
             const [linhas] = await pool.query(sql_bpId, [id]);
 
-            if(linhas.length() === 0) return null;
+            if(linhas.length === 0) return null;
 
             const linha = linhas[0];
 
             return new ClassificacaoModel(
-                linha.getid(),
-                linhas.getnome()
+                linha.id,
+                linhas.nome
             )
         }
         catch(error)

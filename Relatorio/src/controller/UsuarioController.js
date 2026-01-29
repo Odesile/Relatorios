@@ -3,6 +3,23 @@ import { UsuarioDAO } from "../database/DAO/UsuarioDAO.js";
 
 export class UsuarioController
 {
+    /**
+     * Renderiza o formulário de Login.
+     * 
+     * GET: /login
+     */
+    async formLogin(req, res) {
+        res.render('login', { 
+            erro: null,
+            email: '' 
+        });
+    }
+
+    /**
+     * Processa a autenticação.
+     * 
+     * POST: /login
+     */
     async login (req, res)
     {
         const dao = new UsuarioDAO();

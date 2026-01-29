@@ -79,9 +79,9 @@ export class AtividadeModel
         this.mes = mes;
     }
 
-    getmes()
+    getano()
     {
-        return this.mes;
+        return this.ano;
     }
     setano(ano)
     {

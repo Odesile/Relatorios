@@ -15,7 +15,7 @@ export class ClassificacaoModel
 
     setnome (nome)
     {
-        if(!nome || nome.trim() === ""|| nome.len() > 45)
+        if(!nome || nome.trim() === ""|| nome.length > 45)
         {
             throw new Error("Insira um nome váliodo")
         }

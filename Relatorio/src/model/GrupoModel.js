@@ -42,7 +42,7 @@ export class GrupoModel
     }
     setnome(nome)
     {
-        if(!nome || nome === "" || nome.len() > 45)
+        if(!nome || nome === "" || nome.length > 45)
         {
             throw new Error("Insira um nome válido!")
         }
